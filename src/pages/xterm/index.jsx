@@ -12,6 +12,10 @@ export default function XTermPanel() {
         webSocket.send("cd D:\\projects\\Dolphin.Sound.Frontend.Mobile \r");
         webSocket.send("expo bs\r");
     }
+    const handleBuild=()=>{
+        webSocket.send("cd D:\\projects\\Dolphin.Sound.Frontend.Mobile \r");
+        webSocket.send("expo build:android -t apk\r");
+    }
     useEffect(()=>{
         if(containerRef.current){
             const terminal=new Terminal({disableStdin:true})
@@ -22,16 +26,20 @@ export default function XTermPanel() {
             const attachAddon = new AttachAddon(webSocket);
             terminal.loadAddon(attachAddon);
 
-            terminal.write("welcome come $\r\n")
-            terminal.write("$")
             terminal.open(containerRef.current)
             fitAddon.fit();
+
+            webSocket.addEventListener("message",(event)=>{
+                
+            })
+
         }
     },[])
 
     return (
         <div>
-            <button onClick={handleClick}>测试</button>
+            <button onClick={handleClick}>获取打包列表</button>
+            <button onClick={handleBuild}>重新打包</button>
             <div ref={containerRef}></div>
         </div>
     )
