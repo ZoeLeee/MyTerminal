@@ -1,9 +1,13 @@
 const os = require("os");
 const WebSocket = require("ws");
 const pty = require("node-pty");
-
+const http = require('http');
+const fs = require('fs');
 const wss = new WebSocket.Server({ port: 3334 });
 const shell = os.platform() === "win32" ? "powershell.exe" : "bash";
+const express = require("express");
+const app = express();
+const port = 3335
 
 wss.on("connection", function connection(ws) {
   console.log("success");
@@ -26,3 +30,11 @@ wss.on("connection", function connection(ws) {
     ptyProcess.write(message);
   });
 });
+
+app.use(express.static(__dirname + '../../../dist'));
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+
+
