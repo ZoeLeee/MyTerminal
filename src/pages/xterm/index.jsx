@@ -9,7 +9,9 @@ const isDev =
 
 export default function XTermPanel() {
   const containerRef = useRef(null);
-  const webSocket = new WebSocket("ws://127.0.0.1:3334");
+  const webSocket = new WebSocket(
+    isDev ? "ws://127.0.0.1" : "ws://www.dodream.top:3334"
+  );
 
   const handleClick = () => {
     if (isDev)
