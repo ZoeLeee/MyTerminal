@@ -16,13 +16,13 @@ export default function XTermPanel() {
   const handleClick = () => {
     if (isDev)
       webSocket.send("cd D:\\projects\\Dolphin.Sound.Frontend.Mobile \r");
-    else webSocket.send("cd /var/www/html/project/MyTerminal \r");
+    else webSocket.send("cd /var/www/html/project/Dolphin.Sound.Frontend.Mobile \r");
     webSocket.send("expo bs\r");
   };
   const handleBuild = () => {
     if (isDev)
       webSocket.send("cd D:\\projects\\Dolphin.Sound.Frontend.Mobile \r");
-    else webSocket.send("cd /var/www/html/project/MyTerminal \r");
+    else webSocket.send("cd /var/www/html/project/Dolphin.Sound.Frontend.Mobile \r");
     webSocket.send("expo build:android -t apk\r");
   };
   useEffect(() => {
