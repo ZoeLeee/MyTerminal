@@ -49,7 +49,7 @@ export default function XTermPanel() {
     return (
         <div>
             <button onClick={handleClick}>获取打包列表</button>
-            <button onClick={handleBuild}>重新打包</button>
+            {/* <button onClick={handleBuild}>重新打包</button> */}
             <div ref={containerRef}></div>
         </div>
     );

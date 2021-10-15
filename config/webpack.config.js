@@ -36,7 +36,7 @@ module.exports = {
       template: path.join(__dirname, "../src/index.html"),
       filename: "./index.html",
     }),
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin(["../dist/"]),
   ],
   output: {
     filename: "[hash].bundle.js",
