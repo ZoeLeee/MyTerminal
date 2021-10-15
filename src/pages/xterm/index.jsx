@@ -17,7 +17,7 @@ export default function XTermPanel() {
         if (isDev)
             webSocket.send("cd D:\\projects\\Dolphin.Sound.Frontend.Mobile \r");
         else {
-            webSocket.send("cd /var/www/html/project/MyTerminal \r");
+            webSocket.send("cd /var/www/html/project/Dolphin.Sound.Frontend.Mobile \r");
         }
         webSocket.send("expo build:status\r");
     };
